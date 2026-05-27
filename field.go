@@ -21,23 +21,21 @@ type DateFields struct {
 // PrepareID method prepares the ID value to be used for filtering
 // e.g convert hex-string ID value to bson.ObjectId
 func (f *IDField) PrepareID(id interface{}) (interface{}, error) {
-	if idStr, ok := id.(string); ok {
-		return primitive.ObjectIDFromHex(idStr)
-	}
-
-	// Otherwise id must be ObjectId
-	return id, nil
+	_ = "STUB: not implemented"
+	return nil, nil
 }
+
+// Otherwise id must be ObjectId
 
 // GetID method returns a model's ID
 func (f *IDField) GetID() interface{} {
-	return f.ID
+	_ = "STUB: not implemented"
+
+	// SetID sets the value of a model's ID field.
+	return nil
 }
 
-// SetID sets the value of a model's ID field.
-func (f *IDField) SetID(id interface{}) {
-	f.ID = id.(primitive.ObjectID)
-}
+func (f *IDField) SetID(id interface{}) { _ = "STUB: not implemented"; return }
 
 //--------------------------------
 // DateField methods
@@ -46,15 +44,9 @@ func (f *IDField) SetID(id interface{}) {
 // Creating hook is used here to set the `created_at` field
 // value when inserting a new model into the database.
 // TODO: get context as param the next version(4).
-func (f *DateFields) Creating() error {
-	f.CreatedAt = time.Now().UTC()
-	return nil
-}
+func (f *DateFields) Creating() error { _ = "STUB: not implemented"; return nil }
 
 // Saving hook is used here to set the `updated_at` field
 // value when creating or updating a model.
 // TODO: get context as param the next version(4).
-func (f *DateFields) Saving() error {
-	f.UpdatedAt = time.Now().UTC()
-	return nil
-}
+func (f *DateFields) Saving() error { _ = "STUB: not implemented"; return nil }

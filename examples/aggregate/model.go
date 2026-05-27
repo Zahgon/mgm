@@ -13,11 +13,8 @@ type book struct {
 }
 
 func newBook(name string, pages int, authID primitive.ObjectID) *book {
-	return &book{
-		Name:     name,
-		Pages:    pages,
-		AuthorID: authID,
-	}
+	_ = "STUB: not implemented"
+	return nil
 }
 
 type author struct {
@@ -25,8 +22,4 @@ type author struct {
 	Name             string `json:"name" bson:"name"`
 }
 
-func newAuthor(name string) *author {
-	return &author{
-		Name: name,
-	}
-}
+func newAuthor(name string) *author { _ = "STUB: not implemented"; return nil }

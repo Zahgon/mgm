@@ -10,9 +10,4 @@ type book struct {
 	Pages            int    `json:"pages" bson:"pages"`
 }
 
-func newBook(name string, pages int) *book {
-	return &book{
-		Name:  name,
-		Pages: pages,
-	}
-}
+func newBook(name string, pages int) *book { _ = "STUB: not implemented"; return nil }

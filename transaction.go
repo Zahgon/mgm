@@ -2,6 +2,7 @@ package mgm
 
 import (
 	"context"
+
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -9,31 +10,20 @@ import (
 type TransactionFunc func(session mongo.Session, sc mongo.SessionContext) error
 
 // Transaction creates a transaction with the default client.
-func Transaction(f TransactionFunc) error {
-	return TransactionWithClient(ctx(), client, f)
-}
+func Transaction(f TransactionFunc) error { _ = "STUB: not implemented"; return nil }
 
 // TransactionWithCtx creates a transaction with the given context and the default client.
 func TransactionWithCtx(ctx context.Context, f TransactionFunc) error {
-	return TransactionWithClient(ctx, client, f)
+	_ = "STUB: not implemented"
+	return nil
 }
 
 // TransactionWithClient creates a transaction with the given client.
 func TransactionWithClient(ctx context.Context, client *mongo.Client, f TransactionFunc) error {
-	session, err := client.StartSession() //start session need to get options.
-	if err != nil {
-		return err
-	}
-
-	defer session.EndSession(ctx)
-
-	if err = session.StartTransaction(); err != nil { // startTransaction need to get options.
-		return err
-	}
-
-	wrapperFn := func(sc mongo.SessionContext) error {
-		return f(session, sc)
-	}
-
-	return mongo.WithSession(ctx, session, wrapperFn)
+	_ = "STUB: not implemented"
+	return nil
 }
+
+//start session need to get options.
+
+// startTransaction need to get options.

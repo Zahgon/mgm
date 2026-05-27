@@ -13,22 +13,13 @@ type BaseOperator struct {
 }
 
 // GetKey function returns the operator's key.
-func (operator *BaseOperator) GetKey() string {
-	return operator.key
-}
+func (operator *BaseOperator) GetKey() string { _ = "STUB: not implemented"; return "" }
 
 // GetVal function returns the operator's value.
-func (operator *BaseOperator) GetVal() interface{} {
-	return operator.val
-}
+func (operator *BaseOperator) GetVal() interface{} { _ = "STUB: not implemented"; return nil }
 
 // New function creates a new base operator with the specified key and value
-func New(key string, val interface{}) Operator {
-	return &BaseOperator{
-		key: key,
-		val: val,
-	}
-}
+func New(key string, val interface{}) Operator { _ = "STUB: not implemented"; return *new(Operator) }
 
 // Ensure that the BaseOperator implements the Operator interace
 var _ Operator = &BaseOperator{}

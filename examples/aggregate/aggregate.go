@@ -1,56 +1,12 @@
 package aggregate
 
-import (
-	"github.com/kamva/mgm/v3"
-	"github.com/kamva/mgm/v3/builder"
-	"github.com/kamva/mgm/v3/field"
-	"go.mongodb.org/mongo-driver/bson"
-)
+func seed() { _ = "STUB: not implemented"; return }
 
-func seed() {
-	author := newAuthor("Mehran")
-	_ = mgm.Coll(author).Create(author)
+func delSeededData() { _ = "STUB: not implemented"; return }
 
-	book := newBook("Test", 124, author.ID)
-	_ = mgm.Coll(book).Create(book)
+func lookup() error { _ = "STUB: not implemented"; return nil }
 
-}
+// Author model's collection
 
-func delSeededData() {
-	_, _ = mgm.Coll(&book{}).DeleteMany(nil, bson.M{})
-	_, _ = mgm.Coll(&author{}).DeleteMany(nil, bson.M{})
-}
-
-func lookup() error {
-	seed()
-
-	defer delSeededData()
-
-	// Author model's collection
-	authorColl := mgm.Coll(&author{})
-
-	pipeline := bson.A{
-		builder.S(builder.Lookup(authorColl.Name(), "author_id", field.ID, "author")),
-	}
-
-	cur, err := mgm.Coll(&book{}).Aggregate(mgm.Ctx(), pipeline)
-
-	if err != nil {
-		return err
-	}
-
-	defer cur.Close(nil)
-
-	for cur.Next(nil) {
-		var result bson.M
-		err := cur.Decode(&result)
-		if err != nil {
-			return err
-		}
-
-		// do something with result....
-		//fmt.Printf("%+v\n", result)
-	}
-
-	return nil
-}
+// do something with result....
+//fmt.Printf("%+v\n", result)

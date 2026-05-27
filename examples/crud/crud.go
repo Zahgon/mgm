@@ -1,20 +1,3 @@
 package crud
 
-import "github.com/kamva/mgm/v3"
-
-func crud() error {
-
-	book := newBook("Test", 124)
-	booksColl := mgm.Coll(book)
-
-	if err := booksColl.Create(book); err != nil {
-		return err
-	}
-
-	book.Name = "Moulin Rouge!"
-	if err := booksColl.Update(book); err != nil {
-		return err
-	}
-
-	return booksColl.Delete(book)
-}
+func crud() error { _ = "STUB: not implemented"; return nil }

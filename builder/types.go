@@ -10,19 +10,7 @@ type SMap struct {
 }
 
 // ToMap function converts our SMap to bson.M for use in filters, stages, etc.
-func (s *SMap) ToMap() bson.M {
-	m := bson.M{}
-
-	for _, o := range s.Operators {
-		m[o.GetKey()] = o.GetVal()
-	}
-
-	return m
-}
+func (s *SMap) ToMap() bson.M { _ = "STUB: not implemented"; return *new(bson.M) }
 
 // S receives operators as parameters and returns a bson.M that can be used in filters, stages, etc.
-func S(operators ...Operator) bson.M {
-	s := &SMap{Operators: operators}
-
-	return s.ToMap()
-}
+func S(operators ...Operator) bson.M { _ = "STUB: not implemented"; return *new(bson.M) }

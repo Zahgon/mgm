@@ -2,6 +2,7 @@ package mgm
 
 import (
 	"context"
+
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -95,125 +96,31 @@ type DeletedHookWithCtx interface {
 }
 
 func callToBeforeCreateHooks(ctx context.Context, model Model) error {
-	if hook, ok := model.(CreatingHookWithCtx); ok {
-		if err := hook.Creating(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(CreatingHook); ok {
-		if err := hook.Creating(); err != nil {
-			return err
-		}
-	}
-
-	if hook, ok := model.(SavingHookWithCtx); ok {
-		if err := hook.Saving(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(SavingHook); ok {
-		if err := hook.Saving(); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func callToBeforeUpdateHooks(ctx context.Context, model Model) error {
-	if hook, ok := model.(UpdatingHookWithCtx); ok {
-		if err := hook.Updating(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(UpdatingHook); ok {
-		if err := hook.Updating(); err != nil {
-			return err
-		}
-	}
-
-	if hook, ok := model.(SavingHookWithCtx); ok {
-		if err := hook.Saving(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(SavingHook); ok {
-		if err := hook.Saving(); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func callToAfterCreateHooks(ctx context.Context, model Model) error {
-	if hook, ok := model.(CreatedHookWithCtx); ok {
-		if err := hook.Created(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(CreatedHook); ok {
-		if err := hook.Created(); err != nil {
-			return err
-		}
-	}
-
-	if hook, ok := model.(SavedHookWithCtx); ok {
-		if err := hook.Saved(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(SavedHook); ok {
-		if err := hook.Saved(); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func callToAfterUpdateHooks(ctx context.Context, updateResult *mongo.UpdateResult, model Model) error {
-	if hook, ok := model.(UpdatedHookWithCtx); ok {
-		if err := hook.Updated(ctx, updateResult); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(UpdatedHook); ok {
-		if err := hook.Updated(updateResult); err != nil {
-			return err
-		}
-	}
-
-	if hook, ok := model.(SavedHookWithCtx); ok {
-		if err := hook.Saved(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(SavedHook); ok {
-		if err := hook.Saved(); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func callToBeforeDeleteHooks(ctx context.Context, model Model) error {
-	if hook, ok := model.(DeletingHookWithCtx); ok {
-		if err := hook.Deleting(ctx); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(DeletingHook); ok {
-		if err := hook.Deleting(); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }
 
 func callToAfterDeleteHooks(ctx context.Context, deleteResult *mongo.DeleteResult, model Model) error {
-	if hook, ok := model.(DeletedHookWithCtx); ok {
-		if err := hook.Deleted(ctx, deleteResult); err != nil {
-			return err
-		}
-	} else if hook, ok := model.(DeletedHook); ok {
-		if err := hook.Deleted(deleteResult); err != nil {
-			return err
-		}
-	}
-
+	_ = "STUB: not implemented"
 	return nil
 }

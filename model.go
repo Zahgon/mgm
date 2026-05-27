@@ -34,12 +34,8 @@ type DefaultModel struct {
 
 // Creating function calls the inner fields' defined hooks
 // TODO: get context as param in the next version (4).
-func (model *DefaultModel) Creating() error {
-	return model.DateFields.Creating()
-}
+func (model *DefaultModel) Creating() error { _ = "STUB: not implemented"; return nil }
 
 // Saving function calls the inner fields' defined hooks
 // TODO: get context as param the next version(4).
-func (model *DefaultModel) Saving() error {
-	return model.DateFields.Saving()
-}
+func (model *DefaultModel) Saving() error { _ = "STUB: not implemented"; return nil }
